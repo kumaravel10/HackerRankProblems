@@ -1,0 +1,27 @@
+	import java.util.ArrayList;
+	import java.util.List;
+	
+	public class BigSum {
+		public static long aVeryBigSum(List<Long> ar) {
+	        long sum = 0000000000;
+		for( int i=0; i < ar.size(); i++){
+			sum += ar.get(i);
+		}
+		
+		return sum;
+	
+	    }
+		
+		public static void main(String[] args) {
+			List<Long> l = new ArrayList<>();
+			l.add(1000000001L);
+			l.add(1000000002L);
+			l.add(1000000003L);
+			l.add(1000000004L);
+			l.add(1000000005L);
+			
+			System.out.println(BigSum.aVeryBigSum(l));
+			
+		}
+	
+	}
