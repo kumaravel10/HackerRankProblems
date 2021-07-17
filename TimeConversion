@@ -1,0 +1,52 @@
+public class TimeConversion {
+	public static String timeConversion(String s){
+		StringBuilder mlTime = new StringBuilder();
+		
+		int indexForIdentifyPMorAM = 8;
+		int extractTimeIndex = 7;
+		int mlHr = 0;
+
+		if("p".equalsIgnoreCase(String.valueOf(s.charAt(indexForIdentifyPMorAM)))){
+			mlHr = Integer.valueOf(String.valueOf(s.charAt(0))+String.valueOf(s.charAt(1)));
+			if(mlHr == 12){
+				for(int i=0; i <= extractTimeIndex ; i++){
+					mlTime.append(String.valueOf(s.charAt(i)));
+				}
+
+				return mlTime.toString();
+			} else{
+				mlHr += 12;
+				mlTime.append(String.valueOf(mlHr));
+				for(int i = 2; i <= extractTimeIndex ; i++){
+					mlTime.append(String.valueOf(s.charAt(i)));
+				}
+				return mlTime.toString();
+			}
+		} else{
+
+			mlHr = Integer.valueOf(String.valueOf(s.charAt(0))+String.valueOf(s.charAt(1)));
+			if(mlHr == 12){
+				mlTime.append("00");
+				for(int i = 2; i <= extractTimeIndex ; i++){
+					mlTime.append(String.valueOf(s.charAt(i)));
+				}
+				return mlTime.toString();
+			} else{
+				for(int i=0; i <= extractTimeIndex ; i++){
+				mlTime.append(String.valueOf(s.charAt(i)));
+				}
+				return mlTime.toString();
+			}
+		}
+	}
+	
+	public static void main (String[] arg) {
+		System.out.println(TimeConversion.timeConversion("12:00:00AM"));
+		System.out.println(TimeConversion.timeConversion("12:00:00PM"));
+		System.out.println(TimeConversion.timeConversion("12:50:59PM"));
+		System.out.println(TimeConversion.timeConversion("12:50:59AM"));
+		System.out.println(TimeConversion.timeConversion("07:50:59AM"));
+		System.out.println(TimeConversion.timeConversion("07:50:59PM"));
+	}
+
+}
