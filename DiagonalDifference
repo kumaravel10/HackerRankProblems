@@ -1,0 +1,99 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class DiagonalDifference {
+	public static int diagonalDifference(List<List<Integer>> arr) {
+	    
+		int leftDiagonalSum = 0;
+		int rightDiagonalSum = 0;
+		
+		int rowSize = arr.size() - 1;
+		int columnSize = arr.get(0).size() - 1;
+		
+		for(int i =0; i<= rowSize;i++) {
+			leftDiagonalSum += arr.get(i).get(i);
+			rightDiagonalSum += arr.get(i).get(columnSize);
+			columnSize--;
+		}
+		//leftDiagonalSum = arr.get(0).get(0) + arr.get(1).get(1) + arr.get(2).get(2);
+		//rightDiagonalSum = arr.get(0).get(2) + arr.get(1).get(1) + arr.get(2).get(0);
+		
+		if(leftDiagonalSum != rightDiagonalSum) {
+		return leftDiagonalSum > rightDiagonalSum ? leftDiagonalSum - rightDiagonalSum 
+				: rightDiagonalSum - leftDiagonalSum;
+		}
+		
+		return 0;
+		
+	    }
+	
+	public static void main(String[] arg) {
+		
+		List<List<Integer>> l = new ArrayList<>();
+		
+		List<Integer> l1 =  new ArrayList<>();
+		l1.add(11);
+		l1.add(2);
+		l1.add(4);
+		
+		l.add(l1);
+		
+		List<Integer> l2 =  new ArrayList<>();
+		l2.add(4);
+		l2.add(5);
+		l2.add(6);
+		
+		l.add(l2);
+		
+		List<Integer> l3 =  new ArrayList<>();
+		l3.add(10);
+		l3.add(8);
+		l3.add(-12);
+		
+		l.add(l3);
+		
+		System.out.println(DiagonalDifference.diagonalDifference(l));
+		
+List<List<Integer>> arr = new ArrayList<>();
+		
+		List<Integer> td =  new ArrayList<>();
+		td.add(-1);
+		td.add(1);
+		td.add(-7);
+		td.add(-8);
+		
+		arr.add(td);
+		
+		List<Integer> td2 =  new ArrayList<>();
+		td2.add(-10);
+		td2.add(-8);
+		td2.add(-5);
+		td2.add(-2);
+		
+		arr.add(td2);
+		
+		List<Integer> td3 =  new ArrayList<>();
+		td3.add(0);
+		td3.add(9);
+		td3.add(7);
+		td3.add(-1);
+		
+		arr.add(td3);
+		
+		List<Integer> td4 =  new ArrayList<>();
+		td4.add(4);
+		td4.add(4);
+		td4.add(-2);
+		td4.add(1);
+		
+		arr.add(td4);
+		
+		System.out.println(DiagonalDifference.diagonalDifference(arr));
+		
+		
+		
+		
+	}
+
+
+}
