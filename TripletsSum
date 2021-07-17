@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class TripletsSum {
+	
+	public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+	    int alicePoints = 0;
+	    int bobPoints = 0;
+		
+		for(int i =0 ; i < 3; i++){
+
+			if( a.get(i) != b.get(i)){
+			int temp = a.get(i) > b.get(i) ? alicePoints++ : bobPoints++;
+			}
+		}
+		List<Integer> points = new ArrayList<>();
+		points.add(alicePoints);
+		points.add(bobPoints);
+		return points;
+
+	    }
+
+}
