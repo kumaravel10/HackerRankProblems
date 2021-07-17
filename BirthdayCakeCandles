@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class BirthdayCakeCandles {
+	
+	public static int birthdayCakeCandles(List<Integer> candles) {
+	    int countOfHeightCandles = 0;
+	    int currentHeightCandle = 0;     
+
+		for(int i=0 ; i < candles.size(); i++){
+			if(candles.get(i) >= currentHeightCandle) {
+			if(candles.get(i) == currentHeightCandle){
+				countOfHeightCandles++;
+			} else{
+				currentHeightCandle = candles.get(i);
+				countOfHeightCandles = 1;
+			}
+		}
+		}
+
+		return countOfHeightCandles;
+
+	    }
+	
+	public static void main(String args[]) {
+		List<Integer> arr = new ArrayList<>();
+		arr.add(3);
+		arr.add(2);
+		arr.add(1);
+		arr.add(3);
+		System.out.println(BirthdayCakeCandles.birthdayCakeCandles(arr));
+	}
+	
+	
+
+}
