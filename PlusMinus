@@ -1,0 +1,93 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class PlusMinus{
+	
+	public static void plusMinus(List<Integer> arr) {
+		int size = arr.size();
+		BigDecimal n = new BigDecimal(String.valueOf(size));
+		
+		Map<Integer,Integer> st = new HashMap();
+		st.put(1, 0);
+		st.put(-1, 0);
+		st.put(0, 0);
+		
+		for(Integer v : arr){
+			int vtype = 0;
+			if(v != 0) {
+				vtype = v > 0 ? 1 : -1;
+			}
+				st.put(vtype,st.get(vtype)+1);
+			
+		}
+		BigDecimal result;		
+		BigDecimal bg1 = new BigDecimal(String.valueOf(st.get(1)));
+		BigDecimal bg2 = new BigDecimal(String.valueOf(st.get(-1)));
+		BigDecimal bg3 = new BigDecimal(String.valueOf(st.get(0)));
+		
+		result = bg1.divide(n,6,RoundingMode.CEILING);
+		System.out.println(result);
+		
+		result = bg2.divide(n,6,RoundingMode.CEILING);
+		System.out.println(result);
+		
+		result = bg3.divide(n,6,RoundingMode.CEILING);
+		System.out.println(result);
+		
+		 
+		
+		
+		
+		//String res1 = new BigDecimal(String.valueOf(st.get(1))).divide(n, 6, RoundingMode.CEILING).toString();
+		//System.out.println(res1);
+		
+		//String res2 = new BigDecimal(String.valueOf(st.get(-1))).divide(n, 6, RoundingMode.CEILING).toString();
+		//System.out.println(res2);
+		
+		//System.out.println(String.format("%.6f",(st.get(1)/size)));
+		//System.out.println(String.format("%.6f",(st.get(-1)/size)));
+		//System.out.println(String.format("%.6f",(st.get(0)/size)));
+
+	    }
+	
+	public static void main(String[] args) {
+		
+		Integer[] in = {0,-67,-74,-38,-72,-53,0,-13,-95,-91,-100,-59,0,
+				 -10,-68,-71,-62,-21,0,-42,-57,-16,-66,-23,0,-80,
+				 -63,-68,-65,-71,0,-71,-15,-32,-26,-8,0,-6,-51,-87,
+				 -19,-71,0,-93,-26,-35,-56,-89,0,-21,-74,-39,-57,-8,
+				 0,-69,-29,-24,-99,-53,0,-65,-42,-72,-18,-4,0,-73,-46,-63,-78,-87};
+		
+		List<Integer> a1 = new ArrayList<>(Arrays.asList(in));
+		PlusMinus.plusMinus(a1);
+		
+		List<Integer> arr = new ArrayList<>();
+		arr.add(-4);
+		arr.add(3);
+		arr.add(-9);
+		arr.add(0);
+		arr.add(4);
+		arr.add(1);
+		PlusMinus.plusMinus(arr);
+		
+		/* create 3 BigDecimal objects
+	      BigDecimal bg1, bg2, bg3;
+
+	      bg1 = new BigDecimal("16");
+	      bg2 = new BigDecimal("3");
+
+	      // divide bg1 with bg2 with 3 scale
+	      bg3 = bg1.divide(bg2, 6, RoundingMode.CEILING);
+
+	      String str = "Division result is " +bg3;
+
+	      // print bg3 value
+	      System.out.println( str );*/
+	}
+}
