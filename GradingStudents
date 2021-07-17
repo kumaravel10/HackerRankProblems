@@ -1,0 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class GradingStudents {
+	
+	public static List<Integer> gradingStudents(List<Integer> grades){
+
+		List<Integer> result = new ArrayList<>();
+		for(int grade : grades){
+			int reminder = grade % 5;
+			if( reminder != 0 && grade >= 38){
+				int diff = 5 - reminder;
+				if( diff < 3){
+					result.add(grade + diff);	
+				} else {
+					result.add(grade);
+				}
+			} else{
+				result.add(grade);
+			}
+		}
+		return result;
+	}
+	
+	public static void main(String[] args) {
+		List<Integer> grades = new ArrayList<>();
+		grades.add(73);
+		grades.add(67);
+		grades.add(38);
+		grades.add(33);
+		grades.add(76);
+		
+		System.out.println(GradingStudents.gradingStudents(grades));
+	}
+
+}
