@@ -1,0 +1,25 @@
+public class Staircase {
+	 public static void staircase(int n) {
+		    
+			for(int i=1; i<=n; i++){
+			 int j=1;
+			 while(j <= n){
+				if(j <= (n-i)){
+				  System.out.print(" ");
+				} else{
+				  System.out.print("#");
+				}
+				j++;
+			}
+
+			System.out.println();
+			
+			}
+
+		    }
+	
+	public static void main(String[] args) {
+		Staircase.staircase(5);
+	}
+
+}
